@@ -1,8 +1,13 @@
-
 .idea/
 .DS_Store
 __pycache__/
 classification/convertor/
 segmentation/convertor/
 checkpoint_dir/
+checkpoints/
 demo/
+data/
+dataset/
+datasets/
+detection/ops_dcnv3/
+*.pth
