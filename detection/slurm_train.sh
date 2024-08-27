@@ -23,19 +23,7 @@ eval "$(conda shell.bash hook)"
 
 conda activate InternImage
 
+BASE_DIR=/nfs/scratch/staff/schmittth/sync/InternImage/detection
 CONFIG=$1
-VAULT_DIR=$2
-#PORT=${PORT:-29300}
-#PYTHONPATH="$(dirname $0)/..":$PYTHONPATH \
 
-#mkdir $VAULT_DIR/training_logs/internimage/$SLURM_JOB_ID
-#CACHE_DIR=$VAULT_DIR/.cache
-#export PIP_CACHE_DIR=$CACHE_DIR
-#export TRANSFORMERS_CACHE=$CACHE_DIR
-#export HF_HOME=$CACHE_DIR
-#mkdir -p $CACHE_DIR
-#export TORCH_HOME=$VAULT_DIR/models/torchhub
-#mkdir -p $TORCH_HOME
-
-#srun python -u $VAULT_DIR/software/InternImage/segmentation/train.py $CONFIG --work-dir=$VAULT_DIR/training_logs/internimage/$SLURM_JOB_ID --launcher='slurm' ${@:3}
-srun python -u train.py $CONFIG --launcher='slurm' ${@:3}
+srun python -u train.py $BASE_DIR/$CONFIG --work-dir=$BASE_DIR/train_logs/$SLURM_JOB_ID --launcher='slurm' ${@:3}
