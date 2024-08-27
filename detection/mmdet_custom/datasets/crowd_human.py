@@ -121,7 +121,7 @@ class CrowdHumanDataset(CustomDataset):
             inter_h = max(0, min(y1 + h, img_info['height']) - max(y1, 0))
             if inter_w * inter_h == 0:
                 continue
-            if ann['area'] <= 0 or w < 1 or h < 1:
+            if ann['area'] <= 0 or w < 1 or h < 1:  # if ann.get('area', 69) <= 0 or w < 1 or h < 1:
                 continue
             if ann['category_id'] not in self.cat_ids:
                 continue
