@@ -8,3 +8,4 @@ checkpoint_dir/
 demo/
 pretrained/
 upload.py
+checkpoints/
